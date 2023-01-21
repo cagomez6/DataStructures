@@ -93,27 +93,29 @@ class LinkedList {
     }
 
     reverse() {
-        let prevNode = null;
-        let nextNode = null;
-        let current = this.head;
+        if(this.head.next){
+            let prevNode = null;
+            let nextNode = null;
+            let current = this.head;
 
-        while(current !== null) {
-            //first node becomes last
-            if(!prevNode) {
-                this.tail = this.head;
+            while(current !== null) {
+                //first node becomes last
+                if(!prevNode) {
+                    this.tail = this.head;
+                }
+
+                //last node becomes first
+                if(current.next === null) {
+                    this.head = current;
+                }
+
+                //switch pointers to point to old parent
+                nextNode = current.next;
+                current.next = prevNode;
+                
+                prevNode = current;
+                current = nextNode;
             }
-
-            //last node becomes first
-            if(current.next === null) {
-                this.head = current;
-            }
-
-            //switch pointers to point to old parent
-            nextNode = current.next;
-            current.next = prevNode;
-            
-            prevNode = current;
-            current = nextNode;
         }
     }
 }
