@@ -27,6 +27,7 @@ class LinkedList {
     }
 
     insert(index, value) {
+        //check valid index
         if(index === 0) {
             return this.prepend(value);
         }
@@ -39,16 +40,46 @@ class LinkedList {
         {
             const newNode = new Node(value);
 
-            let current = this.head;
-            for(let i = 0; i < index-1; i++)
-            {
-                current = current.next;
-            }
+            let current = this._iterateTo(index);
 
             newNode.next = current.next;
             current.next = newNode;
             this.length++;
         }
+    }
+
+    remove(index) {
+        //check valid index
+        if(index >= 0 && index < this.length)
+        {
+            //if first item, set new head
+            if(index === 0) {
+                let temp = this.head;
+                this.head = temp.next;
+                temp = null;
+            } else {
+                let current = this._iterateTo(index);
+                let deleteTarget = current.next;
+                current.next = deleteTarget.next;
+                deleteTarget.next = null;
+                deleteTarget = null;
+
+                //if last item, set new tail
+                if(index === this.length-1) {
+                    this.tail = current;
+                }
+            }
+            this.length--;
+        }
+    }
+
+    _iterateTo(index) {
+        let current = this.head;
+        for(let i = 0; i < index-1; i++)
+        {
+            current = current.next;
+        }
+        return current;
     }
 
     printList() {
@@ -67,5 +98,6 @@ myLinkedList.append(5);
 myLinkedList.append(16);
 myLinkedList.prepend(1);
 myLinkedList.insert(2,7);
+myLinkedList.remove(0);
 console.log(myLinkedList);
 console.log(myLinkedList.printList());
