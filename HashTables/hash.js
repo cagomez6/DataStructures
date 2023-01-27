@@ -11,6 +11,7 @@ class HashTable {
       return hash;
     }
 
+    //LINKED LIST
     // set(key, value) {
     //     if(!this.data[this._hash(key)]){
     //         this.data[this._hash(key)] = {key: key, value: value, next: null};
@@ -46,6 +47,7 @@ class HashTable {
         return undefined;
     }
 
+    //LINKED LIST
     // get(key) {
     //     if(!this.data[this._hash(key)]) {
     //         return null;
