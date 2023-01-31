@@ -57,8 +57,8 @@ class Stack {
 }
 
 let stack = new Stack();
-stack.push(5);
-stack.push(7);
+stack.push('test');
+stack.push('program');
 console.log(stack.peek());
 console.log(stack.pop());
 console.log(stack.peek());
