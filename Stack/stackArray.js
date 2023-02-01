@@ -16,7 +16,7 @@ class Stack {
     pop(){
         if(this.arr.length > 0)
         {
-            this.arr.pop();
+            return this.arr.pop();
         }
     }
 }
