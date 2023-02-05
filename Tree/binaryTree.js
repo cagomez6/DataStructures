@@ -90,7 +90,7 @@ class BinarySearchTree{
     
     lookup(value){
         if(!this.root){
-            return null;
+            return false;
         }
 
         let current = this.root;
@@ -111,9 +111,9 @@ class BinarySearchTree{
 
         if(current.value === value)
         {
-            return current;
+            return true;
         } else {
-            return null;
+            return false;
         }
     }
 }
