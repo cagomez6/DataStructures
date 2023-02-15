@@ -143,10 +143,11 @@ class BinarySearchTree{
             }
         }
 
-        //if found, check its children nodes going right -> left -> left...
+        //if found, check its children nodes
         if(current.value === value)
         {
             target = current;
+            //Default uses successor which is right -> left -> left...
             if(target.right)
             {
                 let currentPrev = current;
